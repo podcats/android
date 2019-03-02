@@ -4,6 +4,7 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Handler;
 import androidx.annotation.Nullable;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -81,21 +82,21 @@ class AndroidMediaPlayerFacade {
     }
 
     private void requestAudioFocus() {
-        audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+        //audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
     }
 
     private MediaPlayer createAndBindMediaPlayer(Either<Surface, SurfaceHolder> surface,
                                                  Uri videoUri) throws IOException, IllegalStateException, IllegalArgumentException {
         MediaPlayer mediaPlayer = mediaPlayerCreator.createMediaPlayer();
         mediaPlayer.setOnPreparedListener(internalPreparedListener);
-        mediaPlayer.setOnVideoSizeChangedListener(internalSizeChangedListener);
+        //mediaPlayer.setOnVideoSizeChangedListener(internalSizeChangedListener);
         mediaPlayer.setOnCompletionListener(internalCompletionListener);
         mediaPlayer.setOnErrorListener(internalErrorListener);
         mediaPlayer.setOnBufferingUpdateListener(internalBufferingUpdateListener);
         mediaPlayer.setDataSource(context, videoUri, NO_HEADERS);
-        attachSurface(mediaPlayer, surface);
+        //attachSurface(mediaPlayer, surface);
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        mediaPlayer.setScreenOnWhilePlaying(true);
+        //mediaPlayer.setScreenOnWhilePlaying(true);
 
         currentBufferPercentage = 0;
         volume = 1.0f;
@@ -176,7 +177,7 @@ class AndroidMediaPlayerFacade {
 
     void start(Either<Surface, SurfaceHolder> surface) throws IllegalStateException {
         assertIsInPlaybackState();
-        attachSurface(mediaPlayer, surface);
+        //attachSurface(mediaPlayer, surface);
         currentState = PLAYING;
         mediaPlayer.start();
     }
