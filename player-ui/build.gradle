@@ -4,3 +4,8 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion versions.androidSdk.compile
 }
+
+dependencies {
+    implementation libraries.androidxConstraintLayout
+    implementation libraries.kotlinStdLib
+}
