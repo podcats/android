@@ -4,7 +4,6 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Handler;
 import androidx.annotation.Nullable;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -82,7 +81,7 @@ class AndroidMediaPlayerFacade {
     }
 
     private void requestAudioFocus() {
-        //audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+        audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
     }
 
     private MediaPlayer createAndBindMediaPlayer(Either<Surface, SurfaceHolder> surface,
