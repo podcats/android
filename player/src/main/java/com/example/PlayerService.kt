@@ -44,7 +44,7 @@ class PlayerService : Service() {
 
     private fun play(url: String) {
         val player = PlayerBuilder()
-            .withPriority(PlayerType.MEDIA_PLAYER)
+            .withPriority(PlayerType.EXO_PLAYER)
             .build(this)
         val options = OptionsBuilder()
             .withContentType(ContentType.H264)
