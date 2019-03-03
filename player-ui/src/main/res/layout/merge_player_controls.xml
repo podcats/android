@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@android:color/black"
+    tools:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:max="290"
+        tools:progress="50" />
+
+    <TextView
+        android:id="@+id/timeStartTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seekBar"
+        tools:text="0:50" />
+
+    <TextView
+        android:id="@+id/timeEndTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seekBar"
+        tools:text="4:50" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/timeBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="timeStartTextView, timeEndTextView" />
+
+    <ImageView
+        android:id="@+id/rewindButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:background="?selectableItemBackground"
+        android:contentDescription="@string/skip_back"
+        android:minWidth="96dp"
+        android:src="@drawable/ic_skip_back"
+        app:layout_constraintBottom_toBottomOf="@id/playPauseButton"
+        app:layout_constraintEnd_toStartOf="@+id/playPauseButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timeBarrier"
+        app:layout_constraintTop_toTopOf="@id/playPauseButton" />
+
+    <ImageView
+        android:id="@+id/playPauseButton"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="?selectableItemBackground"
+        android:contentDescription="@string/pause"
+        android:minWidth="96dp"
+        android:src="@drawable/ic_pause_circle"
+        app:layout_constraintEnd_toStartOf="@id/forwardButton"
+        app:layout_constraintStart_toEndOf="@id/rewindButton"
+        app:layout_constraintTop_toBottomOf="@id/timeBarrier" />
+
+    <ImageView
+        android:id="@+id/forwardButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="?selectableItemBackground"
+        android:contentDescription="@string/skip_forward"
+        android:src="@drawable/ic_skip_forward"
+        app:layout_constraintBottom_toBottomOf="@id/playPauseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/playPauseButton"
+        app:layout_constraintTop_toTopOf="@id/playPauseButton" />
+
+</merge>
