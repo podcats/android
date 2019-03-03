@@ -2,16 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion versions.androidSdk.compile
-
-  defaultConfig {
-    minSdkVersion versions.androidSdk.min
-    targetSdkVersion versions.androidSdk.target
-  }
+    compileSdkVersion versions.androidSdk.compile
 }
 
 dependencies {
-  implementation project(":no-player")
-  implementation libraries.androidxAppCompat
-  implementation libraries.kotlinStdLib
+    implementation project(':no-player')
+
+    implementation libraries.androidxAppCompat
+    implementation libraries.kotlinStdLib
 }
