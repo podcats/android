@@ -146,13 +146,15 @@ class AndroidMediaPlayerImpl implements NoPlayer {
     @Override
     public void play() throws IllegalStateException {
         heart.startBeatingHeart();
-        requestSurface(new SurfaceRequester.Callback() {
-            @Override
-            public void onSurfaceReady(Either<Surface, SurfaceHolder> surface) {
-                mediaPlayer.start(surface);
-                listenersHolder.getStateChangedListeners().onVideoPlaying();
-            }
-        });
+        mediaPlayer.start(null);
+        listenersHolder.getStateChangedListeners().onVideoPlaying();
+        //requestSurface(new SurfaceRequester.Callback() {
+        //    @Override
+        //    public void onSurfaceReady(Either<Surface, SurfaceHolder> surface) {
+        //        mediaPlayer.start(surface);
+        //        listenersHolder.getStateChangedListeners().onVideoPlaying();
+        //    }
+        //});
     }
 
     @Override
@@ -160,12 +162,13 @@ class AndroidMediaPlayerImpl implements NoPlayer {
         if (playheadPositionInMillis() == positionInMillis) {
             play();
         } else {
-            requestSurface(new SurfaceRequester.Callback() {
-                @Override
-                public void onSurfaceReady(Either<Surface, SurfaceHolder> surface) {
-                    initialSeekWorkaround(surface, positionInMillis);
-                }
-            });
+            initialSeekWorkaround(null, positionInMillis);
+            //requestSurface(new SurfaceRequester.Callback() {
+            //    @Override
+            //    public void onSurfaceReady(Either<Surface, SurfaceHolder> surface) {
+            //        initialSeekWorkaround(surface, positionInMillis);
+            //    }
+            //});
         }
     }
 
@@ -228,15 +231,16 @@ class AndroidMediaPlayerImpl implements NoPlayer {
         if (mediaPlayer.hasPlayedContent()) {
             stop();
         }
-        assertPlayerViewIsAttached();
-        createSurfaceByShowingVideoContainer();
+        //assertPlayerViewIsAttached();
+        //createSurfaceByShowingVideoContainer();
         listenersHolder.getBufferStateListeners().onBufferStarted();
-        requestSurface(new SurfaceRequester.Callback() {
-            @Override
-            public void onSurfaceReady(Either<Surface, SurfaceHolder> surface) {
-                mediaPlayer.prepareVideo(uri, surface);
-            }
-        });
+        mediaPlayer.prepareVideo(uri, null);
+        //requestSurface(new SurfaceRequester.Callback() {
+        //    @Override
+        //    public void onSurfaceReady(Either<Surface, SurfaceHolder> surface) {
+        //        mediaPlayer.prepareVideo(uri, surface);
+        //    }
+        //});
     }
 
     private void createSurfaceByShowingVideoContainer() {

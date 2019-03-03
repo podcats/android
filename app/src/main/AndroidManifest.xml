@@ -20,6 +20,8 @@
 
         </activity-alias>
 
+        <service android:name=".PlayerService"/>
+
     </application>
 
 </manifest>
