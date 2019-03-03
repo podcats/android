@@ -88,14 +88,14 @@ class AndroidMediaPlayerFacade {
                                                  Uri videoUri) throws IOException, IllegalStateException, IllegalArgumentException {
         MediaPlayer mediaPlayer = mediaPlayerCreator.createMediaPlayer();
         mediaPlayer.setOnPreparedListener(internalPreparedListener);
-        mediaPlayer.setOnVideoSizeChangedListener(internalSizeChangedListener);
+        //mediaPlayer.setOnVideoSizeChangedListener(internalSizeChangedListener);
         mediaPlayer.setOnCompletionListener(internalCompletionListener);
         mediaPlayer.setOnErrorListener(internalErrorListener);
         mediaPlayer.setOnBufferingUpdateListener(internalBufferingUpdateListener);
         mediaPlayer.setDataSource(context, videoUri, NO_HEADERS);
-        attachSurface(mediaPlayer, surface);
+        //attachSurface(mediaPlayer, surface);
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        mediaPlayer.setScreenOnWhilePlaying(true);
+        //mediaPlayer.setScreenOnWhilePlaying(true);
 
         currentBufferPercentage = 0;
         volume = 1.0f;
@@ -176,7 +176,7 @@ class AndroidMediaPlayerFacade {
 
     void start(Either<Surface, SurfaceHolder> surface) throws IllegalStateException {
         assertIsInPlaybackState();
-        attachSurface(mediaPlayer, surface);
+        //attachSurface(mediaPlayer, surface);
         currentState = PLAYING;
         mediaPlayer.start();
     }

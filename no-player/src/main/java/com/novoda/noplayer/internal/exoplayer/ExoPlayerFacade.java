@@ -135,7 +135,7 @@ class ExoPlayerFacade {
                 forwarder.mediaSourceEventListener(),
                 bandwidthMeter
         );
-        attachToSurface(playerSurfaceHolder);
+        //attachToSurface(playerSurfaceHolder);
         exoPlayer.prepare(mediaSource, RESET_POSITION, DO_NOT_RESET_STATE);
     }
 

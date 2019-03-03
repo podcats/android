@@ -31,6 +31,7 @@ android {
 
 dependencies {
     implementation project(':no-player')
+    implementation project(':player')
     implementation project(':player-ui')
 
     implementation libraries.androidxAppCompat
