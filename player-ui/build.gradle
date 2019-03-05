@@ -1,13 +1,12 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion versions.androidSdk.compile
 }
 
 dependencies {
-    implementation project(':no-player')
-
-    implementation libraries.androidxAppCompat
+    implementation libraries.androidxConstraintLayout
     implementation libraries.kotlinStdLib
 }

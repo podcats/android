@@ -1,1 +1,4 @@
-include ':app', ':player', 'no-player'
+include ':app'
+include ':no-player'
+include ':player'
+include ':player-ui'
